@@ -1,7 +1,5 @@
 #!/bin/sh
 
-#SBATCH --account=Education-ME-MSc-Me
-
 #SBATCH --job-name="compile-raspa"
 #SBATCH --output="%x-%j.log"
 #SBATCH --partition=compute-p1
