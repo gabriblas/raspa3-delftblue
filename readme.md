@@ -4,7 +4,7 @@ To use it, clone this repo and run `install.sh`:
 
 ```bash
 git clone https://github.com/gabriblas/raspa3-delftblue.git
-cd raspa-delftblue
+cd raspa3-delftblue
 chmod +x install.sh
 ./install.sh
 ```
