@@ -1,0 +1,51 @@
+{
+  "version": 2,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 28,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "delftblue-avx512-el8",
+      "description": "Build options to create an executable for DelftBlue",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "INSTALL_GTEST": false,
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_C_COMPILER": "clang",
+        "CMAKE_CXX_COMPILER": "clang++",
+        "CMAKE_CXX_FLAGS_RELEASE": "-stdlib=libc++ -fvisibility=hidden -fexperimental-library -g -O3 -march=skylake-avx512 -mfma -ffast-math",    
+        "CMAKE_BUILD_WITH_INSTALL_RPATH": true,
+        
+        "OpenCL_LIBRARY": "$env{INTEL_DIR}/lib/libOpenCL.so",
+        "OpenCL_INCLUDE_DIR": "$env{INTEL_DIR}/include/sycl",
+        "VORO_INCLUDE_DIR": "$env{VORO_DIR}/include",
+        "VORO_LIBRARY": "$env{VORO_DIR}/lib/libvoro++.so",
+        "BLA_VENDOR": "OpenBLAS",
+
+        "CMAKE_LINKER_TYPE": "LLD",
+        "CMAKE_INSTALL_PREFIX": "$env{INSTALL_PREFIX}",
+        "PACKAGE_INSTALL_PREFIX": "$env{INSTALL_PREFIX}",
+        "CMAKE_INTERPROCEDURAL_OPTIMIZATION": true,
+        "BUILD_APP" : true,
+        "BUILD_CLI" : true,
+        "BUILD_LIBTORCH": false,
+        "BUILD_PYTHON": false,
+        "BUILD_BENCHMARKS": false,
+        "BUILD_TESTING": false,
+        "BUILD_TESTING_MATHKIT" : false,
+        "BUILD_TESTING_FOUNDATIONKIT" : false,
+        "BUILD_TESTING_SYMMETRYKIT" : false,
+        "BUILD_TESTING_RASPAKIT" : false,
+        "BUILD_TESTING_RASPA3" : false
+      },
+      "vendor": {
+        "microsoft.com/VisualStudioSettings/CMake/1.0": {
+          "hostOS": ["Linux"]
+        }
+      }
+    }
+  ]
+}
